@@ -1,13 +1,36 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: gradientSlide 5s ease infinite;
+    background-size: 200% 200%;
+    /* Ensure the gradient covers the area */
+    height: 100vh;
+    /* Full viewport height */
+    margin: 0;
+    /* Remove default margin */
+}
+
+@keyframes gradientSlide {
+    0% {
+        background-image: linear-gradient(45deg, #c27af3, #dacce3);
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-image: linear-gradient(45deg, #dacce3, #c27af3);
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-image: linear-gradient(45deg, #c27af3, #dacce3);
+        background-position: 0% 0%;
+    }
 }
 
 h1 {

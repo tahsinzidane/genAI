@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname,  'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set the views directory and view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -26,12 +26,14 @@ app.get('/', (req, res) => {
     res.render('index', { responseText: '' });
 });
 
-// Route to handle form submission
 app.post('/generate', async (req, res) => {
     const prompt = req.body.prompt;
 
     if (!prompt) {
-        res.render('index', { responseText: 'Please provide a prompt.' });
+        res.render('index', {
+            responseText: 'Please provide a prompt.',
+            userMsg: '' // Default value
+        });
         return;
     }
 
@@ -39,12 +41,23 @@ app.post('/generate', async (req, res) => {
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = await response.text();
-        res.render('index', { responseText: text });
+
+        res.render('index', {
+            responseText: text,
+            userMsg: `User: ${prompt}` // Properly pass user message
+        });
     } catch (error) {
         console.error('Error:', error);
-        res.render('index', { responseText: 'An error occurred while generating content.' });
+
+        res.render('index', {
+            responseText: 'An error occurred while generating content.',
+            userMsg: `User: ${prompt}` // Ensure user message is passed in error case
+        });
     }
 });
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);

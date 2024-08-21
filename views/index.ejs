@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gen AI App</title>
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
 
 <body>
@@ -20,7 +19,10 @@
   <h2>Response:</h2>
   <ul>
     <li>
-      <%= responseText %>
+      <%= typeof userMsg !=='undefined' ? userMsg : 'No message provided' %>
+    </li>
+    <li>
+      <%= typeof responseText !=='undefined' ? responseText : 'No response available' %>
     </li>
   </ul>
 </body>
