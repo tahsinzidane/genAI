@@ -17,4 +17,3 @@ It looks like there’s a small typo in "chek." It should be "check." Here’s t
 ## License
 - This project is under the [MIT License](/LICENSE)
 
-Check the spelling and grammar to ensure everything is correct.
