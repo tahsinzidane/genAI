@@ -14,10 +14,6 @@ I’ve just wrapped up a new project using Google Gemini API with Node.js, creat
 </p>
 
 
-
-
-It looks like there’s a small typo in "chek." It should be "check." Here’s the corrected version:
-
 ---
 
 ## Author
