@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 // Set up Google Generative AI
-const genAI = new GoogleGenerativeAI(process.env.API_key);
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Middleware
